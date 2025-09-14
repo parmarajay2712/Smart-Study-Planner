@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light-mode">
+    <header>
+        <h1>Smart Study Planner</h1>
+        <div class="header-right">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div id="progressBar"></div>
+            </div>
+            <!-- Notification Bell -->
+            <div class="bell-container">
+                <span id="bellCount" class="bell-count">0</span>
+                <span class="bell">🔔</span>
+                <div id="bellDropdown" class="bell-dropdown"></div>
+            </div>
+            <!-- Dark Mode Toggle -->
+            <div class="toggle-container">
+                <input type="checkbox" id="themeToggle">
+                <label for="themeToggle" class="toggle-label">
+                    <span class="sun">🌞</span>
+                    <span class="moon">🌙</span>
+                    <span class="toggle-ball"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="task-form">
+            <h2>Add Task</h2>
+            <form id="taskForm">
+                <input type="text" id="subject" placeholder="Subject" required>
+                <input type="text" id="topic" placeholder="Topic" required>
+                <input type="date" id="dueDate" required>
+                <select id="priority">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+
+        <section class="task-list">
+            <h2>Task List</h2>
+            <input type="text" id="search" placeholder="Search tasks...">
+            <div id="tasks"></div>
+        </section>
+
+        <section class="timeline">
+            <h2>Timeline</h2>
+            <div id="timeline"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Smart Study Planner</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

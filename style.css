@@ -1,0 +1,167 @@
+/* Reset & Body */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+body.light-mode { background: #f4f4f4; color: #333; }
+body.dark-mode { background: #121212; color: #f4f4f4; }
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #007BFF;
+  color: #fff;
+  flex-wrap: wrap;
+}
+header h1 { margin: 0; font-size: 1.5rem; }
+.header-right { display: flex; align-items: center; gap: 1rem; }
+
+/* Progress Bar */
+.progress-container {
+  width: 120px;
+  height: 12px;
+  background: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+#progressBar {
+  width: 0%;
+  height: 100%;
+  background: #28a745;
+  transition: width 0.3s;
+  border-radius: 6px;
+}
+
+/* Bell Notification */
+.bell-container { position: relative; cursor: pointer; }
+.bell { font-size: 24px; }
+.bell-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+.bell-dropdown {
+  display: none;
+  position: absolute;
+  top: 28px;
+  right: 0;
+  background: #fff;
+  color: #000;
+  min-width: 180px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 100;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 14px;
+  padding: 0.5rem;
+}
+.bell-container:hover .bell-dropdown { display: block; }
+
+/* Toggle Switch */
+.toggle-container { display: flex; align-items: center; }
+.toggle-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.toggle-label .sun, .toggle-label .moon {
+  position: absolute;
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.toggle-label .sun { left: 5px; }
+.toggle-label .moon { right: 5px; }
+.toggle-ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+#themeToggle { display: none; }
+#themeToggle:checked + .toggle-label { background: #333; }
+#themeToggle:checked + .toggle-label .toggle-ball { transform: translateX(30px); }
+
+/* Main Sections */
+main { display: flex; flex-wrap: wrap; gap: 1rem; padding: 1rem; }
+section {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1 1 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+body.dark-mode section { background: #1e1e1e; }
+
+/* Inputs & Buttons */
+input, select, button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+button { cursor: pointer; background: #007BFF; color: #fff; border: none; border-radius: 5px; transition: background 0.3s; }
+button:hover { background: #0056b3; }
+
+/* Task Cards */
+.task-card {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+.task-card:hover { transform: scale(1.02); }
+
+/* Priority Colors */
+.task-card.high { background: #f8d7da; }
+body.dark-mode .task-card.high { background: #5c1e1e; }
+.task-card.medium { background: #fff3cd; }
+body.dark-mode .task-card.medium { background: #5c4b1e; }
+.task-card.low { background: #d4edda; }
+body.dark-mode .task-card.low { background: #1e4020; }
+
+.completed { text-decoration: line-through; opacity: 0.7; }
+
+/* Timeline Cards */
+.timeline-card {
+  background: #d1ffd6;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-left: 4px solid #28a745;
+  transition: background 0.3s, transform 0.2s;
+}
+body.dark-mode .timeline-card { background: #2a452a; }
+.timeline-card:hover { transform: scale(1.02); }
+
+/* Footer */
+footer { text-align: center; padding: 1rem; background: #007BFF; color: #fff; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  main { flex-direction: column; }
+  .header-right { flex-direction: column; gap: 0.5rem; }
+}
